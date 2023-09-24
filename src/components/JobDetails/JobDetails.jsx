@@ -6,12 +6,13 @@ import { saveJobApplication } from "../../utility/localstorage";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { jobId } = useParams();
+  const jobIdInt = parseInt(jobId);
 
   const job = jobs.find((job) => job.id == jobId);
   const { job_title } = job;
 
   const handleApplyNow = () => {
-    saveJobApplication(jobId);
+    saveJobApplication(jobIdInt);
     toast("You have applied successfully");
   };
 
